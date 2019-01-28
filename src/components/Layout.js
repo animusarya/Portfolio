@@ -6,12 +6,11 @@ import styled from 'styled-components';
 import config from '../utils/config';
 import Header from './Header';
 import './layout.css';
+import './Footer';
+import Footer from './Footer';
 
 const Container = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
+  background-color: White;
 `;
 
 const IndexLayout = ({ children }) => (
@@ -24,6 +23,7 @@ const IndexLayout = ({ children }) => (
     </Helmet>
     <Header />
     <Container>{children}</Container>
+    <Footer />
   </div>
 );
 
