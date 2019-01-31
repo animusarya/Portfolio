@@ -11,6 +11,7 @@ import Footer from './Footer';
 
 const Container = styled.div`
   background-color: White;
+  font-family: sans-serif !important;
 `;
 
 const IndexLayout = ({ children }) => (

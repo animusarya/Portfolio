@@ -6,7 +6,6 @@ const Container = styled.div`
   background-color: #242424;
   .columns {
     margin: 0rem !important;
-    margin-top: 1.625rem !important;
   }
   .icon {
     margin-right: 6px;
@@ -19,6 +18,10 @@ const Container = styled.div`
       background-color: #827bfc !important;
       color: white !important;
     }
+  }
+  h4 {
+    margin-top: 1rem;
+    font-family: sans-serif;
   }
 `;
 

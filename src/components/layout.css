@@ -5,6 +5,7 @@ html {
 }
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 article,
 aside,
@@ -61,6 +62,11 @@ dfn {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  font-family: sans-serif;
+}
+
+h4 {
+  font-family: sans-serif;
 }
 mark {
   background-color: #ff0;
@@ -620,5 +626,6 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+    font-family: sans-serif;
   }
 }

@@ -37,6 +37,13 @@ module.exports = {
         icon: './static/images/logo-1024.png',
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `xjr3dzqh9orx`,
+        accessToken: `99c23ce1e0c2e61bd2c57e7350164d8aa10c9f09b5702fa07b296a4a1e09cbd0`,
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 };

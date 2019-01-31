@@ -7,7 +7,7 @@ const Container = styled.div`
 
   }
   .navbar-end {
-        margin-left: -28px;
+    margin-left: -28px;
   }
   .navbar-burger {
     color: #fff !important;
@@ -18,6 +18,15 @@ const Container = styled.div`
   .navbar-menu {
     transition-property: width;
     transition-duration: 2s;
+  }
+  a {
+    color: #f5f5f5 !important;
+    :hover {
+    background-color: #222222;
+    border-bottom: 2px solid #7c4dff;
+    height: 30px;
+    margin-top: 13px;
+    }
   }
 `;
 
