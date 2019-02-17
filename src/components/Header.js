@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const Container = styled.div`
   background-color: #222222 !important;
   @media screen and (max-width: 600px) {
-
   }
   .navbar-end {
     margin-left: -28px;
@@ -81,36 +81,33 @@ export default class extends React.Component {
             <div className="navbar-menu">
               <div className="navbar-start" />
               <div className="navbar-end ">
-                <a
-                  className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
-                >
+                <Link className="navbar-item is-size-7 has-text-white" to="/">
                   HOME
-                </a>
-                <a
+                </Link>
+                <Link
                   className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
+                  to="/about"
                 >
-                  ABOUT ME
-                </a>
+                  ABOUT
+                </Link>
                 <a
                   className="navbar-item is-size-7 has-text-white"
                   href="https://bulma.io/"
                 >
                   GALLERY
                 </a>
-                <a
+                <Link
                   className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
+                  to="/blog"
                 >
                   BLOG
-                </a>
-                <a
+                </Link>
+                <Link
                   className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
+                  to="/contactForm"
                 >
-                  CONTACT
-                </a>
+                  contact
+                </Link>
                 <a
                   className="navbar-item is-size-7 has-text-white"
                   href="https://bulma.io/"

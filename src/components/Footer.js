@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
 
 const Container = styled.div`
   font-family: sans-serif;
@@ -23,15 +24,42 @@ const Container = styled.div`
     margin-top: 1rem;
     font-family: sans-serif;
   }
+  .para {
+    padding: 0rem 3rem 0rem 3rem;
+  }
+  .para1 {
+    padding: 0rem 6rem 0rem 5rem;
+  }
+`;
+const FooterQuery = graphql`
+  query {
+    allContentfulFooter {
+      edges {
+        node {
+          tittle
+          subtittle
+        }
+      }
+    }
+  }
 `;
 
 const Footer = () => (
   <Container className="has-text-centered">
     <div className="columns">
-      <div className="column">
-        <h4 className="has-text-white is-size-5 is-uppercase">Address</h4>
-        <p className="has-text-white is-size-6">123 Sility, South Corner Street,<br />Melbornem Australia.</p>
-      </div>
+      <StaticQuery
+        query={FooterQuery}
+        render={data => (
+          <div className="column">
+            <h4 className="has-text-white is-size-5 is-uppercase">
+              {data.allContentfulFooter.edges[0].node.tittle}
+            </h4>
+            <p className="para has-text-white is-size-6">
+              {data.allContentfulFooter.edges[0].node.subtittle}
+            </p>
+          </div>
+        )}
+      />
       <div className="column">
         <h4 className="has-text-white is-size-5 is-uppercase">Connect</h4>
         <div className="">
@@ -41,10 +69,20 @@ const Footer = () => (
           <i className="fab fa-behance is-size-4 has-text-black icon" />
         </div>
       </div>
-      <div className="column">
-        <h4 className="has-text-white is-size-5 is-uppercase">Contact</h4>
-        <p className="has-text-white is-size-6">Tel: +61 123-456-7890<br />Mail: Sility@example.com</p>
-      </div>
+      <StaticQuery
+        query={FooterQuery}
+        render={data => (
+          <div className="column">
+            <h4 className="has-text-white is-size-5 is-uppercase">
+              {' '}
+              {data.allContentfulFooter.edges[1].node.tittle}
+            </h4>
+            <p className="para1 has-text-white is-size-6">
+              {data.allContentfulFooter.edges[1].node.subtittle}
+            </p>
+          </div>
+        )}
+      />
     </div>
   </Container>
 );

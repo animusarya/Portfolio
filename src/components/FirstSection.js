@@ -22,14 +22,15 @@ const Container = styled.div`
 
 const firstQuery = graphql`
   query {
-    allContentfulFirstSection {
-      edges {
-        node {
-          header
-          title
-          paragraph {
-            paragraph
-          }
+    contentfulFirstSection {
+      header
+      title
+      paragraph {
+        paragraph
+      }
+      image {
+        file {
+          url
         }
       }
     }
@@ -39,30 +40,29 @@ const firstQuery = graphql`
 const FirstSection = () => (
   <Container className="">
     <div className="columns">
-      <div className="column is-three-fifths has-text-left">
-        <StaticQuery
-          query={firstQuery}
-          render={data => (
-            <div className="container">
-              <h1 className="title is-size-3 has-text-black">
-                {data.allContentfulFirstSection.edges[0].node.header}
-              </h1>
-              <h2 className="title is-size-3 has-text-black">
-                {data.allContentfulFirstSection.edges[0].node.title}
-              </h2>
-              <p className="para is-size-7">
-                {
-                  data.allContentfulFirstSection.edges[0].node.paragraph
-                    .paragraph
-                }
-              </p>
+      <StaticQuery
+        query={firstQuery}
+        render={data => (
+          <React.Fragment>
+            <div className="column is-three-fifths has-text-left">
+              <div className="container">
+                <h1 className="title is-size-3 has-text-black">
+                  {data.contentfulFirstSection.header}
+                </h1>
+                <h2 className="title is-size-3 has-text-black">
+                  {data.contentfulFirstSection.title}
+                </h2>
+                <p className="para is-size-7">
+                  {data.contentfulFirstSection.paragraph.paragraph}
+                </p>
+              </div>
             </div>
-          )}
-        />
-      </div>
-      <div className="column">
-        <img src="images/dp.jpg" />
-      </div>
+            <div className="column">
+              <img src={data.contentfulFirstSection.image.file.url} />
+            </div>
+          </React.Fragment>
+        )}
+      />
     </div>
   </Container>
 );

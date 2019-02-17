@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 
 const Container = styled.div`
-  width: 100% !important;
+  font-family: sans-serif;
+  background-color: #f5f5f5;
   margin-top: 53px;
   .subtitle {
     font-family: sans-serif;
@@ -24,7 +26,8 @@ const Button = styled.button`
 const ImageHome = styled.img`
   width: 57%;
   margin-left: 11%;
-  height: 73%;
+  height: 57%;
+  margin-top: 8%;
 `;
 
 const ImageHomeTwo = styled.img`
@@ -34,43 +37,41 @@ const ImageHomeTwo = styled.img`
   margin-left: 28%;
 `;
 
+const aboutQuery = graphql`
+  query {
+    allContentfulAbout {
+      edges {
+        node {
+          header
+          paragraph {
+            paragraph
+          }
+        }
+      }
+    }
+  }
+`;
+
 const about = () => (
   <Layout>
     <Container className="section has-background-white">
       <div className="container">
         <div className="columns is-gapless">
-          <div className="column">
-            <h1 className="subtitle is-size-4 has-text-black">
-              About Our Resturent
-            </h1>
-            <p className="para is-size-6 has-text-black-darker">
-              {' '}
-              The is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been <br />
-              industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley
-              <br />
-              book. It has survived not only five centuries, but also the leap
-              into electronic typesetting,
-              <br />
-              remaining essentially unchanged. It was popularised in the 1960s
-              with the release of Letraset
-              <br />
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software
-              <br />
-              like Aldus sheets PageMaker in Ipsum passages including versions
-              of Lorem Ips sheets
-              <br />
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software
-              <br />
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software
-              <br />
-            </p>
-            <Button className="button">Learn More</Button>
-          </div>
+          <StaticQuery
+            query={aboutQuery}
+            render={data => (
+              <div className="column">
+                <h1 className="subtitle is-size-4 has-text-black">
+                  {data.allContentfulAbout.edges[0].node.header}
+                </h1>
+                <p className="para is-size-6 has-text-black-darker">
+                  {' '}
+                  {data.allContentfulAbout.edges[0].node.paragraph.paragraph}
+                </p>
+                <Button className="button">Learn More</Button>
+              </div>
+            )}
+          />
           <div className="column">
             <ImageHome
               src="/images/first.jpg"
