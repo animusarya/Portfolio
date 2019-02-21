@@ -7,7 +7,7 @@ const Container = styled.div`
   @media screen and (max-width: 600px) {
   }
   .navbar-end {
-    margin-left: -28px;
+    margin-left: 193px;
   }
   .navbar-burger {
     color: #fff !important;
@@ -90,12 +90,12 @@ export default class extends React.Component {
                 >
                   ABOUT
                 </Link>
-                <a
+                <Link
                   className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
+                  to="/about"
                 >
                   GALLERY
-                </a>
+                </Link>
                 <Link
                   className="navbar-item is-size-7 has-text-white"
                   to="/blog"
@@ -106,20 +106,8 @@ export default class extends React.Component {
                   className="navbar-item is-size-7 has-text-white"
                   to="/contactForm"
                 >
-                  contact
+                  CONTACT
                 </Link>
-                <a
-                  className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
-                >
-                  GENERIC
-                </a>
-                <a
-                  className="navbar-item is-size-7 has-text-white"
-                  href="https://bulma.io/"
-                >
-                  ELEMENTS
-                </a>
               </div>
             </div>
           </div>
